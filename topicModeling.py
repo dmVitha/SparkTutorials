@@ -1,8 +1,6 @@
 
 import nltk
 from nltk.util import ngrams
-
-# Gensim
 import gensim
 import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
@@ -30,7 +28,6 @@ token = [nltk.word_tokenize(text) for text in texts]
 # Create Dictionary
 id2word = corpora.Dictionary(token)
 corpus = [id2word.doc2bow(text) for text in token]
-# print(corpus[:1])
 
 # Build LDA model
 lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
